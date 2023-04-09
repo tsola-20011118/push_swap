@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 08:39:02 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/09 12:51:38 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 16:50:36 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,36 +59,47 @@ int	ideal_place_check(t_list *max, t_list *temp_a, t_list *temp_b)
 	return (0);
 }
 
-void	ideal_rotate_check(int i, int j, t_list *temp_a, int flag)
+void	ideal_rotate_check(int i, int j, t_list *temp_a, t_list *temp_b)
 {
-	if (flag == -1)
+	int size_a;
+	int size_b;
+	
+	size_a  = ft_lstsize(temp_a);
+	size_b  = ft_lstsize(temp_b);
+	if (temp_a->flag == -1)
 	{
-		temp_a->flag = -1;
 		if (i < j)
 			temp_a->index = j;
 		else
 			temp_a->index = i;
 	}
-	else if (flag == 1)
+	else if (temp_a->flag == 1)
 	{
-		temp_a->flag = 1;
-		if (i < j)
-			temp_a->index = j;
+		if ((size_a - i) > (size_b - j))
+			temp_a->index = size_a - i;
 		else
-			temp_a->index = i;
+			temp_a->index =  size_b - j;
+		temp_a->a_index = size_a - i;
+		temp_a->b_index =  size_b - j;
 	}
 	else
 	{
-		temp_a->flag = 0;
-		temp_a->index = i + j;
+		if (i <= size_a / 2)
+			temp_a->index = size_b + i - j;
+		else
+			temp_a->index = size_a - i + j;
 	}
 }
 
 int	place_cmp(int j, int size_b, int i, int size_a)
 {
-	if (i != 0 && j != 0 && j <= (int)(size_b / 2) && i <= (int)(size_a / 2))
+	
+	// ft_printf("%d:%d\n", i, j);
+	if (j <= (int)(size_b / 2) && i <= (int)(size_a / 2))
 		return (-1);
-	if (i != 0 && j != 0 && j > (int)(size_b / 2) && i > (int)(size_a / 2))
+	if (j > (int)(size_b / 2) && i > (int)(size_a / 2))
+	{
 		return (1);
+	}
 	return (0);
 }

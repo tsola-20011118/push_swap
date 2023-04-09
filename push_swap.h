@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:07:25 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/09 13:29:32 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 15:56:51 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	return_rotate(t_list **a, t_list **b);
 // algorithm_tool
 int		check_afterall_sort(t_list *lst, int size, int num);
 int		ideal_place_check(t_list *max, t_list *temp_a, t_list *temp_b);
-void	ideal_rotate_check(int i, int j, t_list *temp_a, int flag);
+void	ideal_rotate_check(int i, int j, t_list *temp_a, t_list *temp_b);
 int		place_cmp(int j, int size_b, int i, int size_a);
 
 // lst_operation

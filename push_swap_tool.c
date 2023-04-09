@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:13:32 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/09 13:01:49 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 16:22:00 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	argv_digit_check(char *s, int *number)
 	else
 		minus = 1;
 	num = ps_atoi(s);
-	if (num < INT32_MIN || INT32_MAX < num)
+	if (num * minus  < -2147483648 || 2147483647 < num * minus)
 		num = 0;
 	if (num == 0)
 		return (0);

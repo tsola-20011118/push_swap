@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:12:25 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/09 13:26:11 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 16:50:21 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,16 @@ void	print_how_to_move(int size_a, int size_b, t_list *move, int i)
 {
 	if (move->flag == -1)
 		while ((move->index)--)
-			ft_printf("rr\n");
+		{
+			if (move->a_index > 0 && move->b_index > 0)
+				ft_printf("rr\n");
+			else if (move->a_index > 0)
+				ft_printf("ra\n");
+			else if (move->b_index > 0)
+				ft_printf("rb\n");
+			move->a_index--;
+			move->b_index--;
+		}
 	else if (move->flag == 0)
 	{
 		i = 0;
@@ -35,8 +44,20 @@ void	print_how_to_move(int size_a, int size_b, t_list *move, int i)
 				ft_printf("rrb\n");
 	}
 	else
+	{
+		// ft_printf("%d:%d:%d\n", move->a_index, move->b_index, move->index);
 		while ((move->index)--)
-			ft_printf("rrr\n");
+		{
+			if (move->a_index > 0 && move->b_index > 0)
+				ft_printf("rrr\n");
+			else if (move->a_index > 0)
+				ft_printf("rra\n");
+			else if (move->b_index > 0)
+				ft_printf("rrb\n");
+			move->a_index--;
+			move->b_index--;
+		}
+	}
 }
 
 void	b_rotate(t_list **b, t_list *max)
@@ -116,6 +137,7 @@ void	return_rotate(t_list **a, t_list **b)
 	a_max = (*a)->prev;
 	while (*b)
 	{
+		// print_all(*a,*b);
 		if (!((a_max->num < (*b)->num && a_max == (*a)->prev)
 				|| ((*b)->num > (*a)->prev->num && (*b)->num < (*a)->num)
 				|| (a_max->next->num > (*b)->num && a_max == (*a)->prev)))
@@ -128,5 +150,6 @@ void	return_rotate(t_list **a, t_list **b)
 				a_max = *b;
 			process_px(b, a, 'a');
 		}
+
 	}
 }

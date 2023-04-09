@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:07:25 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/09 15:56:51 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 17:13:34 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ t_list	*b_ideal_check(int i, t_list **b, t_list *temp_a, t_list **max);
 
 // algorithm_rotate
 void	print_how_to_move(int size_a, int size_b, t_list *move, int i);
-void	b_rotate(t_list **b, t_list *max);
-void	a_rotate(t_list **a);
+int		b_rotate(t_list **b, t_list *max);
+int		a_rotate(t_list **a);
+void	a_b_rotate(t_list **a, t_list **b, int a_index, int b_index);
 void	last_rotate(t_list **a);
 void	return_rotate(t_list **a, t_list **b);
 

@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:02:56 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/09 16:17:34 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 16:56:10 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ int	main(int argc, char *argv[])
 	if (b->num < b->next->num)
 		process_sx(&b, 'b');
 	algorithm(&a, &b, b);
-	// if (check_multiple(a, ft_lstsize(a)) == 0)
-	// 	error_print();
-	// print_all(a, b);
 	return (0);
 }
 

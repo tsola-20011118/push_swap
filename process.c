@@ -6,7 +6,7 @@
 /*   By: tanakasola <tanakasola@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 11:05:42 by tanakasola        #+#    #+#             */
-/*   Updated: 2023/04/02 09:07:54 by tanakasola       ###   ########.fr       */
+/*   Updated: 2023/04/09 13:05:45 by tanakasola       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ void	process_px(t_list **from, t_list**to, char flag)
 		*to = temp;
 	}
 	else
-	{
 		*to = lst_new(temp->num);
-		free(temp);
-	}
 	if (flag)
 		ft_printf("p%c\n", flag);
 }
